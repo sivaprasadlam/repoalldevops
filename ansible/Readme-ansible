@@ -1,0 +1,46 @@
+Ansible documentation link:
+
+https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html
+
+To install ansible:
+  1. sudo apt-add-repository ppa:ansible/ansible
+	2. sudo apt update
+	3. sudo apt install ansible
+	4. sudo mkdir -p /etc/ansible
+	5. sudo vi /etc/ansible/hosts
+	          [servers]
+            server1 ansible_host=203.0.113.111
+            [all:vars]
+            ansible_python_interpreter=/usr/bin/python3
+
+
+
+=================================================
+
+From ansible-master: add the public key to worker node authorized key file in  .ssh/authorized_keys. 
+
+
+
+To add ansible host entry as below:
+
+sudo vi /etc/ansible/hosts
+
+[testgroup]
+kslave1 ansible_host=172.31.3.159
+======================================================
+
+
+
+To run playbook commands:
+
+ansible-playbook <playbook-name.yaml>
+
+
+====================================================
+
+
+Ad-hoc commands:
+
+ansible all -a "free -m"
+ansible all -a "df -h"
+ansible all -a "uptime"
